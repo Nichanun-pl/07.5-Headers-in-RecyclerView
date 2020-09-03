@@ -29,7 +29,8 @@ import com.example.android.trackmysleepquality.databinding.ListItemSleepNightBin
 private val ITEM_VIEW_TYPE_HEADER = 0
 private val ITEM_VIEW_TYPE_ITEM = 1
 
-class SleepNightAdapter(val clickListener: SleepNightListener) : ListAdapter<SleepNight, SleepNightAdapter.ViewHolder>(SleepNightDiffCallback()) {
+class SleepNightAdapter(val clickListener: SleepNightListener):
+        ListAdapter<DataItem, RecyclerView.ViewHolder>(SleepNightDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(getItem(position)!!, clickListener)
