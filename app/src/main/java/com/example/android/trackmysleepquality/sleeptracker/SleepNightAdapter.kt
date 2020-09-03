@@ -16,6 +16,7 @@
 
 package com.example.android.trackmysleepquality.sleeptracker
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -85,13 +86,12 @@ class SleepNightAdapter(val clickListener: SleepNightListener):
 }
 
 
-class SleepNightDiffCallback : DiffUtil.ItemCallback<SleepNight>() {
-
-    override fun areItemsTheSame(oldItem: SleepNight, newItem: SleepNight): Boolean {
-        return oldItem.nightId == newItem.nightId
+class SleepNightDiffCallback : DiffUtil.ItemCallback<DataItem>() {
+    override fun areItemsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
+        return oldItem.id == newItem.id
     }
-
-    override fun areContentsTheSame(oldItem: SleepNight, newItem: SleepNight): Boolean {
+    @SuppressLint("DiffUtilEquals")
+    override fun areContentsTheSame(oldItem: DataItem, newItem: DataItem): Boolean {
         return oldItem == newItem
     }
 }
